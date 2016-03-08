@@ -40,18 +40,10 @@ public class TNote {
 		return;
 		if (n == 1){
 			System.out.print(node.data);
-		}else if (n == 2){
-			TreeLevel(node.leftChild,1);
+		}else if (n >= 2){
+			TreeLevel(node.leftChild,n-1);
 			System.out.print("-");
-			TreeLevel(node.rightChild,1);
-		}else if (n == 3){
-			TreeLevel(node.leftChild.leftChild,1);
-			System.out.print("-");
-			TreeLevel(node.leftChild.rightChild,1);
-			System.out.print("-");
-			TreeLevel(node.rightChild.leftChild,1);
-			System.out.print("-");
-			TreeLevel(node.rightChild.rightChild,1);
+			TreeLevel(node.rightChild,n-1);
 		}else{
 			System.out.println("没有该层节点");
 		}
