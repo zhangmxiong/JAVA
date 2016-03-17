@@ -31,8 +31,10 @@ public class HttpDown {
 	}
 	public static void main(String[] args) {
 		// 定义URL、下载后的文件名
-		String url = "http://www.23wx.com/html/42/42214/18706421.html";
-		String fileName = "e:/test.html";
+		String url = "http://www.xs8.cn/gongdou.html";
+		//String url = "http://news.qudong.com/article/309061.shtml";
+		//String fileName = "e:/test.html";
+		String fileName = "e:/test3.html";
 		try{
 			System.out.println("begin");
 			saveToFile(url,fileName);
