@@ -15,24 +15,17 @@ public class Request {
   public String getUri() {
 	    return uri;
   }
-  public void parse() {
-    // Read a set of characters from the socket
-    StringBuffer request = new StringBuffer(2048);
-    int i;
+  public void parse() throws IOException {
+
     byte[] buffer = new byte[2048];
-    try {
-      i = input.read(buffer);
-    }
-    catch (IOException e) {
-      e.printStackTrace();
-      i = -1;
-    }
-    for (int j=0; j<i; j++) {
-      request.append((char) buffer[j]);
-    }
-    System.out.println("网址数据request:"+request);
-    uri = parseUri(request.toString());
-    System.out.println("uri="+uri);
+    //读取输入流，并转换为字符串
+    input.read(buffer);
+    String rq = new String(buffer);
+    
+    System.out.println("输入流:"+input);    
+    System.out.println("网址数据:"+rq);
+    uri = parseUri(rq);
+    System.out.println("截取后uri="+uri);
   }
 
   public String parseUri(String requestString) {

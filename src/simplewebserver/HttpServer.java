@@ -22,9 +22,9 @@ public class HttpServer {
 
   public void await() {
     ServerSocket serverSocket = null;
-    int port = 8089;
+    int port = 80;
     try {
-    	//绑定本地电脑作为服务器，端口8089，队列1.
+    	//绑定本地电脑作为服务器，端口80，队列1.
       serverSocket =  new ServerSocket(port, 1, InetAddress.getByName("127.0.0.1"));
     }
     catch (IOException e) {
@@ -41,11 +41,11 @@ public class HttpServer {
         input = socket.getInputStream();
         output = socket.getOutputStream();
 
-        System.out.println("开始数据分析");
+        System.out.println("第一步：开始数据分析");
         Request request = new Request(input);
         request.parse();
 
-        System.out.println("寻找资源链接");
+        System.out.println("第二步：寻找资源链接");
         Response response = new Response(output);
         response.receiveRequest(request);
         response.sendResource();
