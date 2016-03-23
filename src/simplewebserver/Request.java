@@ -2,6 +2,9 @@ package simplewebserver;
 
 import java.io.InputStream;
 import java.io.IOException;
+import java.net.URLDecoder;
+
+import com.sun.xml.internal.fastinfoset.Decoder;
 
 public class Request {
 
@@ -25,6 +28,7 @@ public class Request {
     System.out.println("输入流:"+input);    
     System.out.println("网址数据:"+rq);
     uri = parseUri(rq);
+    uri = URLDecoder.decode(uri,"utf-8");
     System.out.println("截取后uri="+uri);
   }
 
